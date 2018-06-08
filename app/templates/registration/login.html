@@ -1,0 +1,38 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}">
+
+<center>
+<div class="card text-white bg-success mb-3 page-center cont_ainer cont_ent" style="max-width: 22rem;">
+  <div class="card-header"><div onclick="window.location='{% url 'index_page' %}'" class="btn btn-dark">←</div></div>
+  <div class="card-body">
+    <h4 class="card-title" align="center">LOGIN</h4>
+    <p class="card-text">
+      <div class="container">
+          <form method="POST">
+              {% csrf_token %}
+              {% for i in form %}
+                  {{i.errors}}
+
+                  <input type="{{i.label}}" placeholder="{{i.label}}" class="form-control" name="{{i.name}}">
+                  <p></p>
+              {% endfor %}
+              <p></p>
+              <div class="row">
+                  <div class="col-lg-6">
+                      <input type="submit" value="Login" class="form-control btn btn-dark"/>
+                  </div>
+                  <div class="col-lg-6">
+                      <input type="button" class="form-control btn btn-danger" value="Register" onclick="window.location='{% url 'register' %}'"/>
+                  </div>
+
+              </div>
+
+
+          </form>
+      </div>
+    </p>
+  </div>
+</div>
+</center>

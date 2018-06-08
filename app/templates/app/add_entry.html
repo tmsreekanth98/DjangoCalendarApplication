@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}">
+
+
+
+<div class="container jumbotron">
+    <div class="col-lg-4">
+        <div onclick="window.location='{% url 'calendar' %}'" class="btn btn-dark">←</div>
+    </div>
+    <div class="col-lg-8">
+        <p></p>
+        <h1>Add Calendar Entry</h1>
+    </div>
+</div>
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {% for i in form %}
+            {{i.errors}}
+            <input placeholder="{{i.label}}" class="form-control" name="{{i.name}}">
+        {% endfor %}
+        <p></p>
+        <input type="submit" value="submit" class="form-control btn btn-success"/>
+    </form>
+</div>

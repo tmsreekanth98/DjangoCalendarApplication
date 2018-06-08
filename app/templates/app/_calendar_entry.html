@@ -1,0 +1,22 @@
+
+<div class="calentry col-lg-4">
+    <div class="block_table">
+        <h3>{{entry.name}}</h3>
+        <h4>{{entry.date|date:"Y M d"}} , {{entry.date|date:"D"}}</h4>
+        <hr class="my-4">
+        <p>{{entry.description|truncatechars:100}}</p>
+
+            <button onclick="window.location='{% url 'details_page' entry_id=entry.id %}'" class="btn btn-dark">More</button>
+        <button onclick="DeleteEntry(this);window.location='{% url 'remove' entry.id %}'" class="btn btn-danger">X </button>
+            <button class="btn btn-outline-secondary" disabled>
+                {% if entry.is_favorite %}
+                    <img src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Star_Gold-512.png" height="22px" width="18px">
+                {% else %}
+                    <img src="http://www.iconhot.com/icon/png/token-dark/256/favorites-25.png" height="22px" width="22px">
+                {% endif %}
+            </button>
+
+        <p></p>
+    </div>
+
+</div>

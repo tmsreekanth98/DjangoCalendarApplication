@@ -1,0 +1,23 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}">
+
+<div class="container jumbotron">
+    <form method="POST" action="{% url 'favorite_entry' current_entry.id %}">
+        {% csrf_token %}
+    <div onclick="window.location='{% url 'calendar' %}'" class="btn btn-dark">←</div>
+    <button type="submit" class="btn btn-outline-secondary">
+            {% if current_entry.is_favorite %}
+                <img src="https://cdn3.iconfinder.com/data/icons/flat-actions-icons-9/792/Star_Gold-512.png" height="22px" width="18px">
+            {% else %}
+                <img src="http://www.iconhot.com/icon/png/token-dark/256/favorites-25.png" height="22px" width="22px">
+            {% endif %}
+    </button>
+    </form>
+    <p></p>
+    <h1>{{current_entry.name}}</h1>
+    <h3>{{current_entry.date|date:"Y M d"}} , {{current_entry.date|date:"D"}}</h3>
+    <hr class="my-4">
+    <h5 class="lead">{{current_entry.description}}</h5>
+</div>

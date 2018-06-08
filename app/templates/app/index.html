@@ -1,0 +1,29 @@
+{% load static %}
+<html>
+    <head>
+        <title>Calendar Application</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}">
+    </head>
+    <body>
+        <div class="page-center-home jumbotron">
+          <h1>CALENDAR APPLICATION</h1>
+          <p>A calendar is a system of organizing days for social, religious, commercial or administrative purposes. This is done by giving names to periods of time, typically days, weeks, months and years. A date is the designation of a single, specific day within such a system. A calendar is also a physical record (often paper) of such a system. A calendar can also mean a list of planned events, such as a court calendar or a partly or fully chronological list of documents, such as a calendar of wills.
+
+Periods in a calendar (such as years and months) are usually, though not necessarily, synchronised with the cycle of the sun or the moon. The most common type of pre-modern calendar was the lunisolar calendar, a lunar calendar that occasionally adds one intercalary month to remain synchronised with the solar year over the long term.</p>
+          <p></p>
+          <p></p>
+          <div id="row">
+            <div id="col-lg-1">
+              <button class="form-control btn btn-success" onclick="window.location='{% url 'login' %}'">Login</button>
+            </div>
+            <p></p>
+            <div id="col-lg-1">
+              <button class="form-control btn btn-danger" onclick="window.location='{% url 'register' %}'">Register</button>
+            </div>
+
+          </div>
+
+        </div>
+    </body>
+</html>
